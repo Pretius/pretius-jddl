@@ -63,7 +63,7 @@ public final class DeserializationCriterionFactory {
             logger.debug("targetClassIn({}), nodeType={}, expectedType={}", 
                     Arrays.toString(classes), event.getJsonNode().getNodeType(), event.getExpectedType());
             return Stream.of(classes)
-                .map(Class<?>::getName)
+                .map(Class::getName)
                 .anyMatch(s -> s.equals(event.getExpectedType().getTypeName()));
         };
     }
