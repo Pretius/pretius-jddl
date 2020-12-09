@@ -5,10 +5,10 @@ public interface DeserializationRule {
     /**
      * Rules with arithmetically higher priority get processed earlier than those
      * with lower priority. Rule with priority 10 will be processed before rule with
-     * priority 5.<br/>
+     * priority 5.<br>
      * Criteria with priorities &lt; 0 are used internally for default behaviors. 0
      * is the default priority. It is advised to use values &gt; 0 for custom
-     * criteria, so that they are processed before defaults.<br/>
+     * criteria, so that they are processed before defaults.<br>
      * Note that priority only matters in case there are at least two different
      * which criteria match the same event.
      * 

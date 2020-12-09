@@ -9,7 +9,7 @@ public interface DeserializationCriterionElement {
     static final DeserializationCriterionElement INCONCLUSIVE = ((event)->null); 
     
     /**
-     * @param e
+     * @param e Event
      * @return Boolean.TRUE if decision is conclusive-positive, Boolean.FALSE if
      *         decision is conclusive-negative and null if decision is inconclusive
      */

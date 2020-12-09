@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.pretius</groupId>
-	<artifactId>jrdl</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>jddl</artifactId>
+	<version>1.0.0</version>
 	<name>JSON Dynamic Deserialization Library</name>
 	<description>Library for runtime-configured and runtime-evaluated dynamic json deserialization</description>
 	<inceptionYear>2020</inceptionYear>
@@ -26,9 +26,12 @@
 		<!-- library versions -->
 		<jackson.version>2.11.2</jackson.version>
 		<junit.version>5.7.0</junit.version>
-		<maven.surefire.version>2.22.1</maven.surefire.version>
 		<slf4j-api.version>1.7.30</slf4j-api.version>
 		<logback.version>1.2.3</logback.version>
+		<!-- maven -->
+		<maven.surefire.version>2.22.1</maven.surefire.version>
+		<maven.javadoc.version>3.2.0</maven.javadoc.version>
+		<maven.source.version>3.2.0</maven.source.version>
 	</properties>
 
 	<dependencies>
@@ -91,8 +94,43 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${maven.surefire.version}</version>
 			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven.javadoc.version}</version>
+				<executions>
+				  <execution>
+					<id>attach-javadocs</id>
+					<goals>
+					  <goal>jar</goal>
+					</goals>
+				  </execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven.source.version}</version>
+				<executions>
+				  <execution>
+					<id>attach-sources</id>
+					<goals>
+					  <goal>jar</goal>
+					</goals>
+				  </execution>
+				</executions>
+			  </plugin>
 		</plugins>
 	</build>
 
+	<distributionManagement>
+		<repository>
+		  <id>ossrh</id>
+		  <name>Central Repository OSSRH</name>
+		  <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 
 </project>

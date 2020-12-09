@@ -9,8 +9,6 @@ import java.util.function.Supplier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -51,7 +49,7 @@ public class DynamicObjectDeserializer {
 
     
     /**
-     * Uses the {@link DefaultDeserializerConfigurer} to configure defuault behavior and <code>() -> new ObjectMapper</code> 
+     * Uses the {@link DefaultDeserializerConfigurer} to configure defuault behavior and {@code () -> new ObjectMapper}
      * as the default objectMapperSupplier.
      */
     public DynamicObjectDeserializer() {
@@ -69,8 +67,8 @@ public class DynamicObjectDeserializer {
     }
 
     /** Createas a new DynamicObjectDeserializer. Does not use the {@link DefaultDeserializerConfigurer} like the parameterless constructor.
-     * @param objectMapperSupplier
-     * @param configurers
+     * @param objectMapperSupplier the objectMapper supplier to use for obtaining instances of objectMapper
+     * @param configurers Configuration
      */
     public DynamicObjectDeserializer(Supplier<ObjectMapper> objectMapperSupplier, DeserializerConfigurer... configurers) {
         this.objectMapperSupplier = objectMapperSupplier;
@@ -80,7 +78,7 @@ public class DynamicObjectDeserializer {
     }
 
     /** Createas a new DynamicObjectDeserializer. Does not use the {@link DefaultDeserializerConfigurer} like the parameterless constructor.
-     * @param configurers
+     * @param configurers Configuration
      */
     public DynamicObjectDeserializer(DeserializerConfigurer... configurers) {
         this.objectMapperSupplier = () -> new ObjectMapper();
@@ -97,7 +95,7 @@ public class DynamicObjectDeserializer {
     }
     
     /** as in {@link Collection#add(Object)} returns a boolean 
-     * @param rule
+     * @param rule Rule to be added
      * @return true when the rule was added and false when rule was not added
      */
     public boolean addRule(DeserializationRule rule) {
