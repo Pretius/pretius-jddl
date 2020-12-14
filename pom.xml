@@ -9,6 +9,7 @@
 	<name>JSON Dynamic Deserialization Library</name>
 	<description>Library for runtime-configured and runtime-evaluated dynamic json deserialization</description>
 	<inceptionYear>2020</inceptionYear>
+	<url>https://github.com/Pretius/pretius-jddl</url>
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
@@ -16,6 +17,21 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
+	<organization>
+		<name>Pretius</name>
+		<url>https://pretius.com/</url>
+	</organization>
+	<developers>
+		<developer>
+			<name>Dariusz Wawer</name>
+			<email>dwawer@pretius.com</email>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:ssh://git@github.com:Pretius/pretius-jddl.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:Pretius/pretius-jddl.git</developerConnection>
+		<url>https://github.com/Pretius/pretius-jddl/tree/master</url>
+	</scm>
 
 	<properties>
 		<!-- java-->
@@ -32,6 +48,7 @@
 		<maven.surefire.version>2.22.1</maven.surefire.version>
 		<maven.javadoc.version>3.2.0</maven.javadoc.version>
 		<maven.source.version>3.2.0</maven.source.version>
+		<maven.gpg.version>1.6</maven.gpg.version>
 	</properties>
 
 	<dependencies>
@@ -100,12 +117,12 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>${maven.javadoc.version}</version>
 				<executions>
-				  <execution>
-					<id>attach-javadocs</id>
-					<goals>
-					  <goal>jar</goal>
-					</goals>
-				  </execution>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+					  		<goal>jar</goal>
+						</goals>
+				  	</execution>
 				</executions>
 			</plugin>
 
@@ -114,14 +131,35 @@
 				<artifactId>maven-source-plugin</artifactId>
 				<version>${maven.source.version}</version>
 				<executions>
-				  <execution>
-					<id>attach-sources</id>
-					<goals>
-					  <goal>jar</goal>
-					</goals>
-				  </execution>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+					  		<goal>jar</goal>
+						</goals>
+				  	</execution>
 				</executions>
-			  </plugin>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>${maven.gpg.version}</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+						<configuration>
+							<gpgArguments>
+								<arg>--pinentry-mode</arg>
+								<arg>loopback</arg>
+							</gpgArguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
