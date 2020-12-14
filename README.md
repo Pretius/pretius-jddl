@@ -1,5 +1,8 @@
 # JSON Dynamic Deserialization Library
 
+[![Maven Central](https://img.shields.io/maven-central/v/com.pretius/jddl.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.pretius%22%20AND%20a:%22jddl%22)
+[![javadoc](https://javadoc.io/badge2/com.pretius/jddl/javadoc.svg)](https://javadoc.io/doc/com.pretius/jddl)
+
 Json deserialization library with runtime configured, modifiable and dynamic deserialization rules, utilizing [jackson](https://github.com/FasterXML/jackson) for low-level operations.
 
 JDDL is distributed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
