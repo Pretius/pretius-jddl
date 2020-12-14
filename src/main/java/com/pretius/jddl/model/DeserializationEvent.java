@@ -15,8 +15,8 @@ public interface DeserializationEvent {
     JsonNode getParentJsonNode();
 
     
-    /** the typethat the deserializer expects here by either getting it from the field declaration of an object or any other internal source. 
-     * @return
+    /**  
+     * @return The type that the deserializer expects here by either getting it from the field declaration of an object or any other internal source.
      */
     Type getExpectedType();
     
